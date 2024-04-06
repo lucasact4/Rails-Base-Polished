@@ -2,10 +2,15 @@
 class BaseAdminController < GenericController
   include SidebarConcerns
   set_current_tenant_through_filter
-  
+
+  before_action :_set_show_sidebar
+  before_action :_set_show_header
+  before_action :_set_is_popup
   before_action :authenticate_user!
+
   before_action :set_tenant
   before_action :authenticate_user_tenant
+  
   before_action :set_menu
   after_action :verify_authorized, except: :index, unless: :devise_controller?
   after_action :verify_policy_scoped, only: :index
@@ -35,5 +40,31 @@ class BaseAdminController < GenericController
       raise ActiveRecord::RecordInvalid if current_tenant.present? and current_tenant.id != current_user.tenant_id
     end 
   end
+
+  def hide_sidebar
+    @show_sidebar = false
+  end
+  
+  
+  def hide_header
+    @show_header = false
+  end
+  
+  private
+  def _set_show_sidebar
+    @show_sidebar = true 
+  end
+  
+  def _set_show_header
+    @show_header = true
+  end
+  
+  def _set_is_popup
+    if params.has_key?('popup') and params['popup'] == 'true'
+      hide_sidebar
+      hide_header
+    end
+  end
+
   
 end
