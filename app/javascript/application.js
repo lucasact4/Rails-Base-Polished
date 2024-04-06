@@ -14,12 +14,12 @@ import './boostrap/init';
 import createVueApp from './vueApp';
 
 document.addEventListener('turbo:load', () => {
-  const element = document.getElementById('appAdmin');
+  const element = document.getElementById('vueApp');
+  // console.log(element);
   if (element != null) {
     const vueApp = createVueApp();
     vueApp.config.compilerOptions.whitespace = 'preserve';
-    vueApp.mount('#appAdmin');
+    vueApp.mount('#vueApp');
+    // console.log('Loaded Application');
   }
 })
-
-console.log('Loaded Application');

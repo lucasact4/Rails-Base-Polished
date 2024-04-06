@@ -28,7 +28,6 @@ const createVueApp = ()=>{
     },
     store: store
   });
-  app.config.devtools = true;
 
   // Load Plugins
   app.use(globalMethodsPlugin);

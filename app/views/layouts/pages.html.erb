@@ -1,29 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html class="h-100" lang="en">
   <!-- BEGIN HEAD -->
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no">
-    <title>Rails Base - Propósito Digital</title>
+    <title>Page Title</title>
 
     <!-- BEGIN GLOBAL MANDATORY STYLES -->
     <link href="https://fonts.googleapis.com/css2?family=Sulphur+Point:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300&display=swap" rel="stylesheet">
     <!-- END GLOBAL MANDATORY STYLES -->
 
-    <%= stylesheet_link_tag 'styles', media: 'all', 'data-turbo-track': 'reload'%>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM STYLES -->
     <%= yield :stylesheets %>
     <!-- END PAGE LEVEL PLUGINS/CUSTOM STYLES -->
   </head>
   <!-- END HEAD -->
-  <body class="d-flex h-100 text-center text-white bg-dark">
-    <!-- BEGIN CONTENT AREA -->
-    <%= yield %>
-    <!-- END CONTENT AREA -->
+  <body class="d-flex h-100 justify-content-center align-items-center text-center text-white bg-white">
+    <div id="vueApp" class="d-flex h-100 w-100" v-cloak>
+      <!-- BEGIN CONTENT AREA -->
+      <%= yield %>
+      <!-- END CONTENT AREA -->
+    </div>
     
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
+    <%= javascript_importmap_tags %>
     <%= yield :javascript %>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
   </body>
