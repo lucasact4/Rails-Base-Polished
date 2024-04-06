@@ -5,22 +5,26 @@
   <!-- END HEAD -->
   <body>
     <!-- BEGIN ADMIN CONTENT -->
-    <div id="appAdmin" v-cloak>
+    <div id="vueApp" v-cloak>
       <!-- BEGIN NAVBAR -->
-      <%= render 'layouts/admin/navbar' %>
+      <% if @show_header %>
+        <%= render 'layouts/admin/navbar' %>
+      <% end %>
       <!-- END NAVBAR -->
       <div class="d-flex">
         <!-- BEGIN SIDEBAR -->
-        <%= render 'layouts/admin/sidebar' %>
+        <% if @show_sidebar %>
+          <%= render 'layouts/admin/sidebar' %>
+        <% end %>
         <!-- END SIDEBAR -->
-        <div class="px-5 vh-91 w-100" style="height: 91vh;overflow-y: scroll;">
+        <div class="px-5 vh-91 w-100 d-flex flex-column justify-content-start" style="height: 91vh;overflow-y: scroll;">
           <%= render "layouts/admin/messages" %>
           <!-- BEGIN MAIN CONTENT -->
           <main class="pt-3">
             <%= yield %>
-            <%= render "layouts/admin/footer" %>
           </main>
           <!-- END MAIN CONTENT -->
+          <%= render "layouts/admin/footer" %>
         </div>
       </div>
     </div>
