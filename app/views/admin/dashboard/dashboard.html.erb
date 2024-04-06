@@ -6,12 +6,8 @@
   <%= image_tag 'favicon-white.png', alt: "[Nome do Projeto]", id: 'dashboard-logo', class: 'image-fluid'%>
   <%# <h1 class="display-5 fw-bold">Rails Base</h1> %>
   <div class="col-lg-6 mx-auto">
-    <p class="lead mb-4"><span class="fw-bold"><%= current_user.name %></span>, Bem vindo ao [Rails Base]</p>
-    <%# <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-      <button type="button" class="btn btn-outline-secondary btn-lg px-4">Secondary</button>
-      <button type="button" class="btn btn-primary btn-lg px-4 gap-3">Primary button</button>
-    </div> %>
+    <p class="lead mb-4"><span class="fw-bold"><%= current_user.name %>, </span></p>
+    <p class="lead">Bem vindo ao sistema do admin</p>
+    <p class="lead">Aqui é o Dashboard</p>
   </div>
 </div>
-
-<%=  markdown @readme %>
