@@ -1,4 +1,4 @@
-class UserPresenter < ApplicationRecord
+class UserPresenter < ApplicationPresenter
 
   def roles
       super.map{|e|I18n.t("activerecord.attributes.user_role.roles.#{e.role}")}.join(', ')
