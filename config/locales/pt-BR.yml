@@ -266,6 +266,10 @@ pt-BR:
         last_sign_in_at: "Último login"
       role:
         name: "Nome"
+      user_role:
+        roles:
+          admin: 'Admin'
+          regular: 'Comum'
       permission: 
         entity_id: "Módulo"
         action_name: "Nome da Ação"

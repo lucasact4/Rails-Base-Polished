@@ -29,4 +29,13 @@ class ApplicationRecord < ActiveRecord::Base
   def persisted?
     self.id.present?
   end
+
+  def presenter
+    begin
+      "#{self.class.name}Presenter".constantize.new self
+    rescue
+      ApplicationPresenter.new self
+    end
+  end
+  
 end
