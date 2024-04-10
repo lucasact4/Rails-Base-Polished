@@ -1,4 +1,4 @@
-<% if instances.nil? %>
+<% if no_instances_and_no_search_term?(instances) %>
   <div class="px-4 py-5 my-5 text-center">
     <h1 class="display-5 fw-bold"><%=translate_view_index('no_instances', { model_name: model_plural_translation.downcase})%></h1>
     <div class="col-lg-6 mx-auto">
@@ -7,6 +7,16 @@
         <a class='btn btn-primary btn-lg px-4 gap-3' href="<%= instance_new_path %>"><i class="bi bi-plus"></i><%=translate_view_index('new_button', model_name: model_singular_translation.downcase )%></a> 
       </div>
     </div>
+  </div>
+<% elsif no_instances_with_search_term?(instances) %>
+  <form id="form_search" action=<%= instances_index_path %> method="get">
+    <div class="input-group flex-nowrap">
+      <input type="search" id="input-search" class="form-control" name="term" value="<%= params[:term] %>" placeholder="<%=translate_view_shared('search_placeholder', model_name: model_plural_translation.downcase)%>" aria-label="Search" aria-describedby="Search field">
+      <button type="submit" class="input-group-text bi bi-search" ></button>
+    </div>
+  </form>
+  <div class="px-4 py-5 my-5 text-center">
+    <h1 class="display-5 fw-bold">Não foi encontrado nenhum resultado para "<%= params[:term] %>"</h1>
   </div>
 <% else %>
   <div class="row my-3">

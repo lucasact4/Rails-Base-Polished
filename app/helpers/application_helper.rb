@@ -275,5 +275,13 @@ module ApplicationHelper
       ]
       Markdown.new(text, *options).to_html.html_safe
   end
+
+	def no_instances_and_no_search_term? instances
+		!instances.present? && !params[:term].present?
+	end
+
+	def no_instances_with_search_term? instances
+		!instances.present? && params[:term].present?
+	end
   
 end
