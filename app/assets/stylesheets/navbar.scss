@@ -17,6 +17,13 @@ header{
   }
 }
 
+.navbar-brand-dark {
+  color: black;
+  padding-top: .65rem;
+  padding-bottom: .65rem;
+  font-size: 1.4rem;
+}
+
 .navbar-nav {
   .navbar-text {
     color: var(--white) !important;

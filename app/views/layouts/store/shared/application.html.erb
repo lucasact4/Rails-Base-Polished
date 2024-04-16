@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- BEGIN HEAD -->
+  <%= render 'layouts/admin/head' %>
+  <!-- END HEAD -->
+  <body>
+    <!-- BEGIN EXTERNAL CONTENT -->
+    <%# <div id="vueApp" v-cloak> %>
+      <!-- BEGIN NAVBAR -->
+        <%= render 'layouts/store/shared/nav' %>
+      <!-- END NAVBAR -->
+      <div class="d-flex">
+        <div class="px-5 vh-91 w-100 d-flex flex-column justify-content-start" style="height: 91vh;overflow-y: scroll;">
+          <!-- BEGIN MAIN CONTENT -->
+          <main class="pt-3">
+            <%= yield %>
+          </main>
+          <!-- END MAIN CONTENT -->
+          <%= render 'layouts/store/shared/footer' %>
+        </div>
+      </div>
+    <%# </div> %>
+    <!-- END EXTERNAL CONTENT -->
+  </body>
+</html>
